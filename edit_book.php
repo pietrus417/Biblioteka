@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <?php
+include 'check_secure.php';
 include 'connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["id"])) {

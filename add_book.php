@@ -1,6 +1,6 @@
 <?php
 include 'connection.php';
-
+include 'check_secure.php';
 $message = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

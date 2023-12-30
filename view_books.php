@@ -1,4 +1,5 @@
 <?php
+    include 'check_secure.php';
     include 'connection.php';
     
     $sort = isset($_GET['sort']) ? $_GET['sort'] : '';

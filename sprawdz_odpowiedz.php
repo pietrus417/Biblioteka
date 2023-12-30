@@ -1,0 +1,37 @@
+<?php
+session_start();
+
+// Sprawdź, czy została wysłana metoda POST
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Sprawdź, czy pole odpowiedzi nie jest puste
+    if (!empty($_POST['answer'])) {
+        // Zabezpiecz odpowiedź przed atakami XSS i SQL Injection
+        $answer = htmlspecialchars($_POST['answer']);
+
+        // Sprawdź, czy odpowiedź jest poprawna (tutaj należy ustawić oczekiwaną odpowiedź)
+        $expectedAnswer = 'Czika'; // Przykładowa oczekiwana odpowiedź
+
+        if ($answer === $expectedAnswer) {
+            // Ustaw zmienne sesji, aby potwierdzić poprawną odpowiedź
+            $_SESSION['valid_answer'] = true;
+            $_SESSION['valid_until'] = time() + (24 * 60 * 60); // Ustal czas ważności sesji
+
+            // Przekieruj użytkownika na stronę, którą chciał odwiedzić
+            header('Location: protected_page.php');
+            exit;
+        } else {
+            // Jeśli odpowiedź jest nieprawidłowa, przekieruj z powrotem na stronę z pytaniem
+            header('Location: security.php');
+            exit;
+        }
+    } else {
+        // Jeśli pole odpowiedzi jest puste, przekieruj z powrotem na stronę z pytaniem
+        header('Location: security.php');
+        exit;
+    }
+} else {
+    // Jeśli próba dostępu bezpośrednio do tego pliku, przekieruj na stronę z pytaniem
+    header('Location: security.php');
+    exit;
+}
+?>
