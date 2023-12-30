@@ -5,6 +5,13 @@
     <title>Moja Biblioteka 2.0</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <script>
+    function showChangelog() {
+        const changelog = "Aktualna wersja 2.1 - pomniejsze poprawki + dodanie wyświetlania liczby książek"; // Tutaj wpisz treść zmian
+
+        alert(changelog);
+    }
+</script>
     <style>
         body {
             margin: 0;
@@ -74,6 +81,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Po udzieleniu poprawnej odpowiedzi pokaż zawartość strony
 ?>
+
         <div class="form-wrapper">
             <h1>Witaj Molu Książkowy!</h1>
             <h3>Możesz już dodawać książki do swoich zbiorów bibliotecznych online!</h3>
@@ -93,6 +101,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             <!-- lista książek -->
             <a href="view_books.php" class="btn btn-warning btn-lg" ><i class="fas fa-book"> Przejdź do mojej biblioteki</i></a>
+            <div style="margin-top: 10px;">
+        <button class="btn btn-info btn-lg" onclick="showChangelog()"><i class="fas fa-exclamation-circle"></i> Changelog</button>
+    </div>
         </div>
 <?php
     } else {
@@ -114,6 +125,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_SESSION['valid_answer']) && $_SESSION['valid_answer'] === true && time() < $_SESSION['valid_until']) {
         // Jeśli odpowiedź jest już zapisana i sesja jest aktywna, pokaż zawartość strony
 ?>
+
         <div class="form-wrapper">
         <h1>Witaj ponownie!</h1>
             <h4>Możesz już dodawać książki do swoich zbiorów bibliotecznych online!</h4>
@@ -133,6 +145,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
             <!-- lista książek -->
             <a href="view_books.php" class="btn btn-warning btn-lg" ><i class="fas fa-book"> Przejdź do mojej biblioteki</i></a>
+            <div style="margin-top: 10px;">
+        <button class="btn btn-info btn-lg" onclick="showChangelog()"><i class="fas fa-exclamation-circle"></i> Changelog</button>
+    </div>
         </div>
 <?php
     } else {
