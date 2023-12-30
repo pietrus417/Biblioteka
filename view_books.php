@@ -76,8 +76,13 @@
             <input type="text" name="genre" placeholder="Gatunek">
             <button type="submit" name="search" class="btn btn-primary">Szukaj</button>
             <button type="submit" name="sort" value="asc" class="btn btn-primary">Sortuj A-Z</button>
-        </div>
+            
+        
     </form>
+    <form action="index.php">
+        <button type="submit" class="btn btn-secondary" style="margin-top: 10px;">Powrót</button>
+    </form>
+    </div>
     <table>
         <tr>
             <th>Tytuł</th>
