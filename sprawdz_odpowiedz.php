@@ -16,9 +16,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['valid_answer'] = true;
             $_SESSION['valid_until'] = time() + (24 * 60 * 60); // Ustal czas ważności sesji
 
-            // Przekieruj użytkownika na stronę, którą chciał odwiedzić
-            header('Location: protected_page.php');
-            exit;
+            // Sprawdź, czy wcześniej zapisano żądaną stronę w zmiennej sesji
+            if (isset($_SESSION['desired_page'])) {
+                $desiredPage = $_SESSION['desired_page'];
+                // Przekieruj użytkownika na żądaną stronę
+                header("Location: $desiredPage");
+                exit;
+            } else {
+                // Jeśli nie ma wcześniejszej strony, przekieruj na stronę domową
+                header('Location: index.php');
+                exit;
+            }
         } else {
             // Jeśli odpowiedź jest nieprawidłowa, przekieruj z powrotem na stronę z pytaniem
             header('Location: security.php');

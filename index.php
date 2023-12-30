@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Moja Biblioteka 2.0</title>
+    <title>Moja Biblioteka 2.1.1</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <script>
     function showChangelog() {
-        const changelog = "Aktualna wersja 2.1 - pomniejsze poprawki + dodanie wyświetlania liczby książek"; // Tutaj wpisz treść zmian
+        const changelog = "Aktualna wersja 2.1.1 - poprawa bezpieczeństwa"; // Tutaj wpisz treść zmian
 
         alert(changelog);
     }
