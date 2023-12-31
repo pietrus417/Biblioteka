@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<nav class="top-menu">
+<?php include 'navbar.php'; ?>
+</nav>
     <meta charset="UTF-8">
     <title>Moja Biblioteka 2.1.1</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
     function showChangelog() {
         const changelog = "Aktualna wersja 2.1.1 - poprawa bezpieczeństwa"; // Tutaj wpisz treść zmian
@@ -30,8 +36,17 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
-            margin: 20px;
+            margin-left: 20px;
         }
+        .top-menu {
+            position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+}
         h1 {
             margin-bottom: 20px;
         }
@@ -116,7 +131,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label for="answer">Jak nazywa się Twój pies?</label>
                 <input type="text" id="answer" name="answer" placeholder="Wpisz odpowiedź i idziemy dalej :)">
                 <input type="submit" value="Sprawdź">
-                <p style="color: red;">Niestety, to nie jest poprawna odpowiedź :( <br>Spróbuj jeszcze raz.</p>
+                <p style="color: red;">Niestety, to nie jest poprawna odpowiedź &#128543; <br>Spróbuj jeszcze raz.</p>
             </form>
         </div>
 <?php
@@ -125,7 +140,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_SESSION['valid_answer']) && $_SESSION['valid_answer'] === true && time() < $_SESSION['valid_until']) {
         // Jeśli odpowiedź jest już zapisana i sesja jest aktywna, pokaż zawartość strony
 ?>
-
         <div class="form-wrapper">
         <h1>Witaj ponownie!</h1>
             <h4>Możesz już dodawać książki do swoich zbiorów bibliotecznych online!</h4>
@@ -144,7 +158,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </form>
             
             <!-- lista książek -->
-            <a href="view_books.php" class="btn btn-warning btn-lg" ><i class="fas fa-book"> Przejdź do mojej biblioteki</i></a>
             <div style="margin-top: 10px;">
         <button class="btn btn-info btn-lg" onclick="showChangelog()"><i class="fas fa-exclamation-circle"></i> Changelog</button>
     </div>

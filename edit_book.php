@@ -6,8 +6,11 @@ include 'connection.php';
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["id"])) {
     $id = $_GET["id"];
 
-    $sql = "SELECT * FROM books WHERE id = $id";
-    $result = $conn->query($sql);
+    $sql = "SELECT * FROM books WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
         $row = $result->fetch_assoc();
@@ -23,9 +26,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $author = $_POST["author"];
     $genre = $_POST["genre"];
 
-    $sql = "UPDATE books SET title='$title', author='$author', genre='$genre' WHERE id=$id";
+    $sql = "UPDATE books SET title=?, author=?, genre=? WHERE id=?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sssi", $title, $author, $genre, $id);
 
-    if ($conn->query($sql) === TRUE) {
+    if ($stmt->execute()) {
         header("Location: view_books.php");
         exit();
     } else {
