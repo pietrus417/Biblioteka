@@ -1,16 +1,6 @@
 <?php
     include 'check_secure.php';
     include 'connection.php';
-    
-    $sort = isset($_GET['sort']) ? $_GET['sort'] : '';
-    $order = ($sort === 'asc') ? 'ASC' : 'DESC';
-    $titleSearch = isset($_GET['title']) ? $_GET['title'] : '';
-    $authorSearch = isset($_GET['author']) ? $_GET['author'] : '';
-    $genreSearch = isset($_GET['genre']) ? $_GET['genre'] : '';
-    
-    $sql = "SELECT * FROM books WHERE title LIKE '%$titleSearch%' AND author LIKE '%$authorSearch%' AND genre LIKE '%$genreSearch%' ORDER BY title $order";
-    $result = $conn->query($sql);
-    $totalBooks = $result->num_rows;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -108,16 +98,7 @@ $conn->close();
     </div>
 </div>
 <br>
-    <form action="" method="GET">
         <div class="centered-buttons">
-            <input type="text" name="title" placeholder="Tytuł">
-            <input type="text" name="author" placeholder="Autor">
-            <input type="text" name="genre" placeholder="Gatunek">
-            <button type="submit" name="search" class="btn btn-primary">Szukaj</button>
-            <button type="submit" name="sort" value="asc" class="btn btn-primary">Sortuj A-Z</button>
-            
-        
-    </form>
     <form action="view_books.php">
         <button type="submit" class="btn btn-secondary" style="margin-top: 10px;">Powrót</button>
     </form>

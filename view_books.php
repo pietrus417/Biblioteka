@@ -8,8 +8,9 @@ $order = ($sort === 'asc') ? 'ASC' : 'DESC';
 $titleSearch = isset($_GET['title']) ? $_GET['title'] : '';
 $authorSearch = isset($_GET['author']) ? $_GET['author'] : '';
 $genreSearch = isset($_GET['genre']) ? $_GET['genre'] : '';
+$readFilter = isset($_GET['read']) && $_GET['read'] === '1' ? 'AND reading = 1' : '';
 
-$sql = "SELECT * FROM books WHERE title LIKE '%$titleSearch%' AND author LIKE '%$authorSearch%' AND genre LIKE '%$genreSearch%' ORDER BY title $order";
+$sql = "SELECT * FROM books WHERE title LIKE '%$titleSearch%' AND author LIKE '%$authorSearch%' AND genre LIKE '%$genreSearch%' $readFilter ORDER BY title $order";
 $result = $conn->query($sql);
 $totalBooks = $result->num_rows;
 ?>
@@ -102,6 +103,8 @@ $totalBooks = $result->num_rows;
             <input type="text" name="title" placeholder="Tytuł">
             <input type="text" name="author" placeholder="Autor">
             <input type="text" name="genre" placeholder="Gatunek">
+            <input type="checkbox" name="read" id="read" value="1">
+    <label for="read">Tylko przeczytane</label>
             <button type="submit" name="search" class="btn btn-primary">Szukaj</button>
             <button type="submit" name="sort" value="asc" class="btn btn-primary">Sortuj A-Z</button>
 
@@ -158,9 +161,9 @@ $totalBooks = $result->num_rows;
                     echo "<form action='mark_as_read.php' method='POST'>";
                     echo "<input type='hidden' name='id' value='" . $row["id"] . "'>";
                     if ($row["reading"] == 1) {
-                        echo "<button type='submit' name='mark_as_read' class='btn btn-warning' disabled>Przeczytane</button>";
+                        echo "<button type='submit' name='mark_as_read' class='btn btn-warning' disabled>&#x2705; Przeczytane</button>";
                     } else {
-                        echo "<button type='submit' name='mark_as_read' class='btn btn-warning'>Przeczytana!</button>";
+                        echo "<button type='submit' name='mark_as_read' class='btn btn-warning'>Do przeczytana!</button>";
                     }
                     echo "</form>";
                 }
