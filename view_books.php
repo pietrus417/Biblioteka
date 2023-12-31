@@ -107,7 +107,7 @@
                             </form>
                             <form action='delete_book.php' method='POST'>
                                 <input type='hidden' name='id' value='" . $row["id"] . "'>
-                                <button type='submit' name='delete' class='btn btn-danger'>Usuń</button>
+                                <button type='submit' name='delete' class='btn btn-danger' disabled>Usuń</button>
                             </form>
                         </td>";
                     echo "</tr>";

@@ -9,7 +9,8 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
-            background-image: url(biblio.jpg);
+            background-image: url(biblio1.jpg);
+            background-size: cover;
             display: flex;
             justify-content: center;
             align-items: center;
