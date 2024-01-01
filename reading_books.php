@@ -11,6 +11,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<link type="image/png" sizes="32x32" rel="icon" href="icon/icons8-library-32.png">
+<link rel="icon" type="image/png" sizes="72x72" href="icon/icons8-library-72.png">
+<link rel="apple-touch-icon" type="image/png" sizes="icon/57x57" href="icons8-library-57.png">
     <style>
         body {
             font-family: Arial, sans-serif;

@@ -1,4 +1,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link type="image/png" sizes="32x32" rel="icon" href="icon/icons8-library-32.png">
+<link rel="icon" type="image/png" sizes="72x72" href="icon/icons8-library-72.png">
+<link rel="apple-touch-icon" type="image/png" sizes="icon/57x57" href="icons8-library-57.png">
 <?php
 include 'check_secure.php';
 include 'connection.php';
@@ -31,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("sssi", $title, $author, $genre, $id);
 
     if ($stmt->execute()) {
-        header("Location: view_books.php");
+        header("Location: view");
         exit();
     } else {
         echo "Błąd podczas aktualizacji: " . $conn->error;
