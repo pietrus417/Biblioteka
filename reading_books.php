@@ -26,6 +26,7 @@
     background-color: #333;
     color: #fff;
     padding: 10px 20px;
+    z-index: 999;
 }
         h1 {
             text-align: center;
@@ -36,7 +37,7 @@
             margin: 20px auto;
             border-collapse: collapse;
             background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
         th, td {
             border: 1px solid #ddd;
@@ -55,6 +56,8 @@
         }
         .action-btns {
             display: flex;
+            justify-content: center; /* Wyśrodkowanie poziome */
+    align-items: center; /* Wyśrodkowanie pionowe */
         }
         .action-btns button {
             margin-right: 5px;

@@ -39,13 +39,14 @@
             margin-left: 20px;
         }
         .top-menu {
-            position: fixed;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     background-color: #333;
     color: #fff;
     padding: 10px 20px;
+    z-index: 999;
 }
         h1 {
             margin-bottom: 20px;

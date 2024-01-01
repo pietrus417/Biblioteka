@@ -40,6 +40,7 @@ $totalBooks = $result->num_rows;
     background-color: #333;
     color: #fff;
     padding: 10px 20px;
+    z-index: 999;
 }
         h1 {
             text-align: center;
@@ -51,7 +52,7 @@ $totalBooks = $result->num_rows;
             margin: 20px auto;
             border-collapse: collapse;
             background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         }
 
         th,
@@ -63,6 +64,7 @@ $totalBooks = $result->num_rows;
 
         th {
             background-color: #f2f2f2;
+            text-align: center;
         }
         tr {
             cursor: default;
@@ -74,6 +76,8 @@ $totalBooks = $result->num_rows;
 
         .action-btns {
             display: flex;
+            justify-content: center; /* Wyśrodkowanie poziome */
+    align-items: center; /* Wyśrodkowanie pionowe */
         }
 
         .action-btns button {
@@ -130,59 +134,46 @@ $totalBooks = $result->num_rows;
             <th>Status książki</th>
         </tr>
         <?php
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                echo "<tr>";
-                echo "<td>" . $row["title"] . "</td>";
-                echo "<td>" . $row["author"] . "</td>";
-                echo "<td>" . $row["genre"] . "</td>";
-                echo "<td class='action-btns'>";
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        echo "<tr>";
+        echo "<td>" . $row["title"] . "</td>";
+        echo "<td>" . $row["author"] . "</td>";
+        echo "<td>" . $row["genre"] . "</td>";
+        echo "<td class='action-btns' >";
 
-                // Pobranie informacji o statusie przeczytania
-                $bookId = $row["id"];
-                $sqlReading = "SELECT reading FROM books WHERE id = $bookId";
-                $resultReading = $conn->query($sqlReading);
-                $readingStatus = 0; // Domyślnie nieprzeczytane
-                if ($resultReading->num_rows > 0) {
-                    $readingData = $resultReading->fetch_assoc();
-                    $readingStatus = $readingData['reading'];
-                }
+        // Pobranie informacji o statusie przeczytania i oznaczenie przycisków
+        echo "<form action='edit_book.php' method='GET'>
+            <input type='hidden' name='id' value='" . $row["id"] . "'>
+            <button type='submit' name='edit' class='btn btn-success'>Edytuj</button>
+        </form>";
+        echo "<form action='delete_book.php' method='POST'>
+            <input type='hidden' name='id' value='" . $row["id"] . "'>
+            <button type='submit' name='delete' class='btn btn-danger' disabled>Usuń</button>
+        </form>";
+        echo "</td>";
+        echo "<td style='text-align: center; vertical-align: middle;'>";
 
-                echo "<form action='edit_book.php' method='GET'>
-                    <input type='hidden' name='id' value='" . $row["id"] . "'>
-                    <button type='submit' name='edit' class='btn btn-success'>Edytuj</button>
-                </form>";
-                echo "<form action='delete_book.php' method='POST'>
-                    <input type='hidden' name='id' value='" . $row["id"] . "'>
-                    <button type='submit' name='delete' class='btn btn-danger' disabled>Usuń</button>
-                </form>";
-                echo "</td>";
-                echo "<td>";
-                // Ustawienie atrybutu disabled w zależności od statusu przeczytania
-                if ($readingStatus === 1) {
-                    echo "<form action='mark_as_read.php' method='POST'>
-                        <input type='hidden' name='id' value='" . $row["id"] . "'>
-                        <button type='submit' name='mark_as_read' class='btn btn-warning' disabled>Przeczytane</button>
-                    </form>";
-                } else {
-                    echo "<form action='mark_as_read.php' method='POST'>";
-                    echo "<input type='hidden' name='id' value='" . $row["id"] . "'>";
-                    if ($row["reading"] == 1) {
-                        echo "<button type='submit' name='mark_as_read' class='btn btn-success' disabled>&#x2714;&#xFE0F; Przeczytane</button>";
-                    } else {
-                        echo "<button type='submit' name='mark_as_read' class='btn btn-warning'>&#x274C; Nieprzeczytana</button>";
-                    }
-                    echo "</form>";
-                }
-                echo "</td>";
-                echo "</td>";
-                echo "</tr>";
-            }
+        // Utwórz jeden formularz dla akcji "Oznacz jako przeczytane" lub "Oznacz jako nieprzeczytane"
+        echo "<form action='mark_as_read.php' method='POST'>";
+        echo "<input type='hidden' name='id' value='" . $row["id"] . "'>";
+
+        if ($row["reading"] == 1) {
+            echo "<button type='submit' name='mark_as_read' class='btn btn-success' disabled>&#x2714;&#xFE0F; Przeczytana</button>";
         } else {
-            echo "<tr><td colspan='4'>Brak książek w bibliotece. &#128543;</td></tr>";
+            echo "<button type='submit' name='mark_as_read' class='btn btn-warning'>&#x274C; Nieprzeczytana</button>";
         }
-        $conn->close();
-        ?>
+        
+        echo "</form>";
+        echo "</td>";
+        echo "</tr>";
+    }
+} else {
+    echo "<tr><td colspan='5'>Brak książek w bibliotece. &#128543;</td></tr>";
+}
+$conn->close();
+?>
+
     </table>
     <div class="centered-buttons">
         <form action="index.php">
