@@ -122,7 +122,7 @@ $totalBooks = $result->num_rows;
 
 
     </form>
-    <form action="/home">
+    <form action="home">
         <button type="submit" class="btn btn-secondary" style="margin-top: 10px;">Powrót</button>
     </form>
     </div>
@@ -178,7 +178,7 @@ $conn->close();
 
     </table>
     <div class="centered-buttons">
-        <form action="/home">
+        <form action="home">
             <button type="submit" class="btn btn-secondary">Powrót</button>
         </form>
     </div>

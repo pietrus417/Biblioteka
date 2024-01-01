@@ -109,7 +109,7 @@ $conn->close();
 </div>
 <br>
         <div class="centered-buttons">
-    <form action="/view">
+    <form action="view">
         <button type="submit" class="btn btn-secondary" style="margin-top: 10px;">Powrót</button>
     </form>
     </div>
@@ -150,7 +150,7 @@ $conn->close();
 ?>
     </table>
     <div class="centered-buttons">
-    <form action="/view">
+    <form action="view">
         <button type="submit" class="btn btn-secondary">Powrót</button>
     </form>
     </div>

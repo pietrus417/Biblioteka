@@ -6,13 +6,13 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item <?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>">
-        <a class="nav-link" href="/home">Strona główna / Dodaj książkę</a>
+        <a class="nav-link" href="home">Strona główna / Dodaj książkę</a>
       </li>
       <li class="nav-item <?php echo basename($_SERVER['PHP_SELF']) == 'view_books.php' ? 'active' : ''; ?>">
-        <a class="nav-link" href="/view">Moja Biblioteka</a>
+        <a class="nav-link" href="view">Moja Biblioteka</a>
       </li>
       <li class="nav-item <?php echo basename($_SERVER['PHP_SELF']) == 'reading_books.php' ? 'active' : ''; ?>">
-        <a class="nav-link" href="/read">Przeczytane Książki</a>
+        <a class="nav-link" href="read">Przeczytane Książki</a>
       </li>
       <!-- Dodaj kolejne elementy menu tutaj -->
     </ul>
