@@ -30,7 +30,7 @@
 }
         h1 {
             text-align: center;
-            margin-top: 60px;
+            margin-top: 80px;
         }
         table {
             width: 80%;
@@ -41,7 +41,7 @@
         }
         th, td {
             border: 1px solid #ddd;
-            padding: 8px;
+            padding: 12px;
             text-align: left;
         }
         th {
@@ -109,7 +109,7 @@ $conn->close();
 </div>
 <br>
         <div class="centered-buttons">
-    <form action="view_books.php">
+    <form action="/view">
         <button type="submit" class="btn btn-secondary" style="margin-top: 10px;">Powrót</button>
     </form>
     </div>
@@ -150,7 +150,7 @@ $conn->close();
 ?>
     </table>
     <div class="centered-buttons">
-    <form action="view_books.php">
+    <form action="/view">
         <button type="submit" class="btn btn-secondary">Powrót</button>
     </form>
     </div>

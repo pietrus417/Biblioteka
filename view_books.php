@@ -44,11 +44,11 @@ $totalBooks = $result->num_rows;
 }
         h1 {
             text-align: center;
-            margin-top: 60px;
+            margin-top: 80px;
         }
 
         table {
-            width: 80%;
+            width: auto;
             margin: 20px auto;
             border-collapse: collapse;
             background-color: #fff;
@@ -58,7 +58,7 @@ $totalBooks = $result->num_rows;
         th,
         td {
             border: 1px solid #ddd;
-            padding: 8px;
+            padding: 12px;
             text-align: left;
         }
 
@@ -122,7 +122,7 @@ $totalBooks = $result->num_rows;
 
 
     </form>
-    <form action="index.php">
+    <form action="/home">
         <button type="submit" class="btn btn-secondary" style="margin-top: 10px;">Powrót</button>
     </form>
     </div>
@@ -178,7 +178,7 @@ $conn->close();
 
     </table>
     <div class="centered-buttons">
-        <form action="index.php">
+        <form action="/home">
             <button type="submit" class="btn btn-secondary">Powrót</button>
         </form>
     </div>

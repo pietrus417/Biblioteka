@@ -4,9 +4,6 @@
 <link type="image/png" sizes="32x32" rel="icon" href="icon/icons8-library-32.png">
 <link rel="icon" type="image/png" sizes="72x72" href="icon/icons8-library-72.png">
 <link rel="apple-touch-icon" type="image/png" sizes="icon/57x57" href="icons8-library-57.png">
-<nav class="top-menu">
-<?php include 'navbar.php'; ?>
-</nav>
     <meta charset="UTF-8">
     <title>Moja Biblioteka 2.1.1</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -39,7 +36,7 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             text-align: center;
-            margin-left: 20px;
+           
         }
         .top-menu {
     position: fixed;
@@ -81,13 +78,15 @@
         }
         a {
             display: block;
-            margin-top: 10px;
             text-decoration: none;
             color: #4CAF50;
         }
     </style>
 </head>
 <body>
+<nav class="top-menu">
+<?php include 'navbar.php'; ?>
+</nav>
 <?php
 session_start(); // Rozpoczęcie sesji
 

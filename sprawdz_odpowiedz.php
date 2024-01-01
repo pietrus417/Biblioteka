@@ -24,22 +24,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 exit;
             } else {
                 // Jeśli nie ma wcześniejszej strony, przekieruj na stronę domową
-                header('Location: index.php');
+                header('Location: /home');
                 exit;
             }
         } else {
             // Jeśli odpowiedź jest nieprawidłowa, przekieruj z powrotem na stronę z pytaniem
-            header('Location: security.php');
+            header('Location: /restricted_area');
             exit;
         }
     } else {
         // Jeśli pole odpowiedzi jest puste, przekieruj z powrotem na stronę z pytaniem
-        header('Location: security.php');
+        header('Location: /restricted_area');
         exit;
     }
 } else {
     // Jeśli próba dostępu bezpośrednio do tego pliku, przekieruj na stronę z pytaniem
-    header('Location: security.php');
+    header('Location: /restricted_area');
     exit;
 }
 ?>
