@@ -1,0 +1,11 @@
+{
+ "name": "App",
+ "icons": [
+  {
+   "src": "/icons8-library-cute-clipart-72.png",
+   "sizes": "72×72",
+   "type": "image/png",
+   "density": "1.5"
+  }
+ ]
+}
