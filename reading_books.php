@@ -46,6 +46,13 @@
         th {
             background-color: #f2f2f2;
         }
+        tr {
+            cursor: default;
+        }
+        tr:hover {
+            background-color: #f8d8f7;
+            cursor: default;
+        }
         .action-btns {
             display: flex;
         }

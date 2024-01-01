@@ -115,7 +115,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </form>
             
             <!-- lista książek -->
-            <a href="view_books.php" class="btn btn-warning btn-lg" ><i class="fas fa-book"> Przejdź do mojej biblioteki</i></a>
             <div style="margin-top: 10px;">
         <button class="btn btn-info btn-lg" onclick="showChangelog()"><i class="fas fa-exclamation-circle"></i> Changelog</button>
     </div>
@@ -141,7 +140,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Jeśli odpowiedź jest już zapisana i sesja jest aktywna, pokaż zawartość strony
 ?>
         <div class="form-wrapper">
-        <h1>Witaj ponownie!</h1>
+        <h1>Witaj Molu Książkowy!</h1>
             <h4>Możesz już dodawać książki do swoich zbiorów bibliotecznych online!</h4>
             <!-- formularz -->
             <form action="add_book.php" method="post">

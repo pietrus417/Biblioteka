@@ -64,6 +64,13 @@ $totalBooks = $result->num_rows;
         th {
             background-color: #f2f2f2;
         }
+        tr {
+            cursor: default;
+        }
+        tr:hover {
+            background-color: #f8d8f7;
+            cursor: default;
+        }
 
         .action-btns {
             display: flex;
@@ -120,10 +127,9 @@ $totalBooks = $result->num_rows;
             <th>Autor</th>
             <th>Gatunek</th>
             <th>Akcje</th>
+            <th>Status książki</th>
         </tr>
         <?php
-        include 'connection.php';
-
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
                 echo "<tr>";
@@ -150,7 +156,8 @@ $totalBooks = $result->num_rows;
                     <input type='hidden' name='id' value='" . $row["id"] . "'>
                     <button type='submit' name='delete' class='btn btn-danger' disabled>Usuń</button>
                 </form>";
-
+                echo "</td>";
+                echo "<td>";
                 // Ustawienie atrybutu disabled w zależności od statusu przeczytania
                 if ($readingStatus === 1) {
                     echo "<form action='mark_as_read.php' method='POST'>
@@ -161,13 +168,13 @@ $totalBooks = $result->num_rows;
                     echo "<form action='mark_as_read.php' method='POST'>";
                     echo "<input type='hidden' name='id' value='" . $row["id"] . "'>";
                     if ($row["reading"] == 1) {
-                        echo "<button type='submit' name='mark_as_read' class='btn btn-warning' disabled>&#x2705; Przeczytane</button>";
+                        echo "<button type='submit' name='mark_as_read' class='btn btn-success' disabled>&#x2714;&#xFE0F; Przeczytane</button>";
                     } else {
-                        echo "<button type='submit' name='mark_as_read' class='btn btn-warning'>Do przeczytana!</button>";
+                        echo "<button type='submit' name='mark_as_read' class='btn btn-warning'>&#x274C; Nieprzeczytana</button>";
                     }
                     echo "</form>";
                 }
-
+                echo "</td>";
                 echo "</td>";
                 echo "</tr>";
             }
