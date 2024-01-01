@@ -78,6 +78,7 @@ $totalBooks = $result->num_rows;
             display: flex;
             justify-content: center; /* Wyśrodkowanie poziome */
     align-items: center; /* Wyśrodkowanie pionowe */
+    border: none;
         }
 
         .action-btns button {
@@ -140,8 +141,8 @@ if ($result->num_rows > 0) {
         echo "<td>" . $row["title"] . "</td>";
         echo "<td>" . $row["author"] . "</td>";
         echo "<td>" . $row["genre"] . "</td>";
-        echo "<td class='action-btns' >";
-
+        echo "<td>";
+        echo "<div class='action-btns'>";
         // Pobranie informacji o statusie przeczytania i oznaczenie przycisków
         echo "<form action='edit_book.php' method='GET'>
             <input type='hidden' name='id' value='" . $row["id"] . "'>
@@ -151,6 +152,7 @@ if ($result->num_rows > 0) {
             <input type='hidden' name='id' value='" . $row["id"] . "'>
             <button type='submit' name='delete' class='btn btn-danger' disabled>Usuń</button>
         </form>";
+        echo "</div>";
         echo "</td>";
         echo "<td style='text-align: center; vertical-align: middle;'>";
 
