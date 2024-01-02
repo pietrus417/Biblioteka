@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id'])) {
         // Execute the prepared statement
         if ($stmt->execute()) {
             // Redirect back to the previous page or wherever you want
-            header('Location: reading_books.php');
+            header('Location: read');
             exit;
         } else {
             echo "Error updating record: " . $stmt->error;

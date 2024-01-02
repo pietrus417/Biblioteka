@@ -147,7 +147,7 @@ if ($result->num_rows > 0) {
         echo "<td>";
         echo "<div class='action-btns'>";
         // Pobranie informacji o statusie przeczytania i oznaczenie przycisków
-        echo "<form action='edit_book' method='GET'>
+        echo "<form action='edit' method='GET'>
             <input type='hidden' name='id' value='" . $row["id"] . "'>
             <button type='submit' name='edit' class='btn btn-success'>Edytuj</button>
         </form>";

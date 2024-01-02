@@ -40,7 +40,7 @@ $conn->close();
             var message = '<?php echo $message; ?>';
             if (message !== '') {
                 alert(message);
-                window.location.href = "index.php"; // Przekierowanie po wyświetleniu alertu
+                window.location.href = "home"; // Przekierowanie po wyświetleniu alertu
             }
         }
     </script>

@@ -5,7 +5,7 @@
 <link rel="icon" type="image/png" sizes="72x72" href="icon/icons8-library-72.png">
 <link rel="apple-touch-icon" type="image/png" sizes="icon/57x57" href="icons8-library-57.png">
     <meta charset="UTF-8">
-    <title>Moja Biblioteka 2.1.1</title>
+    <title>Moja Biblioteka 3.0</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -13,7 +13,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
     function showChangelog() {
-        const changelog = "Aktualna wersja 2.1.1 - poprawa bezpieczeństwa"; // Tutaj wpisz treść zmian
+        const changelog = "Aktualna wersja 3.0 - znaczna przebudowa"; // Tutaj wpisz treść zmian
 
         alert(changelog);
     }
@@ -104,7 +104,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <h1>Witaj Molu Książkowy!</h1>
             <h3>Możesz już dodawać książki do swoich zbiorów bibliotecznych online!</h3>
             <!-- formularz -->
-            <form action="add_book.php" method="post">
+            <form action="add" method="post">
                 <label for="title">Tytuł:</label>
                 <input type="text" id="title" name="title" required>
                 
@@ -146,7 +146,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <h1>Witaj Molu Książkowy!</h1>
             <h4>Możesz już dodawać książki do swoich zbiorów bibliotecznych online!</h4>
             <!-- formularz -->
-            <form action="add_book.php" method="post">
+            <form action="add" method="post">
                 <label for="title">Tytuł:</label>
                 <input type="text" id="title" name="title" required>
                 
