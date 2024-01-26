@@ -90,7 +90,7 @@ $totalBooks = $result->num_rows;
 
         .centered-buttons {
             text-align: center;
-            margin-bottom: 10px;
+            margin: 10px;
         }
     </style>
 </head>
@@ -118,13 +118,14 @@ $totalBooks = $result->num_rows;
             <input type="text" name="title" placeholder="Tytuł">
             <input type="text" name="author" placeholder="Autor">
             <input type="text" name="genre" placeholder="Gatunek">
+            <div style="margin: 30px;">
             <input type="checkbox" name="read" id="read" value="1">
     <label for="read">Tylko przeczytane</label>
             <button type="submit" name="search" class="btn btn-primary">Szukaj</button>
             <button type="submit" name="sort" value="asc" class="btn btn-primary">Sortuj A-Z</button>
-
-
+            </div>
     </form>
+    <hr width="70%">
     <form action="home">
         <button type="submit" class="btn btn-secondary" style="margin-top: 10px;">Powrót</button>
     </form>
@@ -151,10 +152,13 @@ if ($result->num_rows > 0) {
             <input type='hidden' name='id' value='" . $row["id"] . "'>
             <button type='submit' name='edit' class='btn btn-success'>Edytuj</button>
         </form>";
+        $userPermission = false; // włącz / wyłącz funkcję usuwania książek
+        if ($userPermission) {
         echo "<form action='delete_book.php' method='POST'>
             <input type='hidden' name='id' value='" . $row["id"] . "'>
-            <button type='submit' name='delete' class='btn btn-danger' disabled>Usuń</button>
+            <button type='submit' name='delete' class='btn btn-danger'>Usuń</button>
         </form>";
+    }
         echo "</div>";
         echo "</td>";
         echo "<td style='text-align: center; vertical-align: middle;'>";
