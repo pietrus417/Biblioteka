@@ -14,6 +14,9 @@
       <li class="nav-item <?php echo basename($_SERVER['PHP_SELF']) == 'reading_books.php' ? 'active' : ''; ?>">
         <a class="nav-link" href="read">Przeczytane Książki</a>
       </li>
+      <li class="nav-item <?php echo basename($_SERVER['PHP_SELF']) == 'notes.php' ? 'active' : ''; ?>">
+        <a class="nav-link" href="notes">Oceny i notatki</a>
+      </li>
       <!-- Dodaj kolejne elementy menu tutaj -->
     </ul>
   </div>

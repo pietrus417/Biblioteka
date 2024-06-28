@@ -56,9 +56,9 @@
 </head>
 <body>
     <div class="form-wrapper">
-        <h1>Hola hola! Nie tak szybko ;)</h1>
-        <h4>najpierw odpowiedz na pytanie</h4>
-        <img src="stop.jpg" alt="Stop" width="250" height="auto">
+        <h2>Hola hola! Nie tak szybko &#128570;</h2>
+        <h4>najpierw odpowiedz na pytanie &#128516;</h4>
+        <img src="dog.jpg" alt="Stop" width="250" height="auto">
         <form action="sprawdz_odpowiedz.php" method="post">
             <label for="answer">Jak nazywa się Twój pies?</label>
             <input type="text" id="answer" name="answer" placeholder="">
