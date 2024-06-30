@@ -1,26 +1,38 @@
 <?php
-include 'connection.php';
-include 'check_secure.php';
+include '..\connection.php';
+include '..\check_secure.php';
+
 $message = '';
+
+// Pobieranie listy gatunków do użycia w formularzu
+$genres = [];
+$result = $conn->query("SELECT * FROM genres");
+while ($row = $result->fetch_assoc()) {
+    $genres[] = $row;
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title = $_POST["title"];
     $author = $_POST["author"];
-    $genre = $_POST["genre"];
+    $genre_id = $_POST["genre"]; // Tutaj nadal będziemy używać ID gatunku
 
-    // Sprawdzenie, czy pole "genre" jest puste i ewentualne dodanie myślnika
-    if (empty($genre)) {
-        $genre = '-';
+    // Pobranie nazwy gatunku na podstawie jego ID
+    $genre_name = '';
+    foreach ($genres as $genre) {
+        if ($genre['id'] == $genre_id) {
+            $genre_name = $genre['name'];
+            break;
+        }
     }
 
     // Użyj prepared statement
     $stmt = $conn->prepare("INSERT INTO books (title, author, genre) VALUES (?, ?, ?)");
-    $stmt->bind_param("sss", $title, $author, $genre);
+    $stmt->bind_param("sss", $title, $author, $genre_name);
 
     if ($stmt->execute()) {
         $message = "Książka została dodana do biblioteki.";
     } else {
-        $message = "Błąd: " . $stmt->error;
+        $message = "Ups, coś poszło nie tak :( " . $stmt->error;
     }
 
     $stmt->close();
@@ -44,7 +56,3 @@ $conn->close();
             }
         }
     </script>
-</head>
-<body>
-</body>
-</html>

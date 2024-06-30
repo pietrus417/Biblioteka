@@ -152,9 +152,9 @@ if ($result->num_rows > 0) {
             <input type='hidden' name='id' value='" . $row["id"] . "'>
             <button type='submit' name='edit' class='btn btn-success'>Edytuj</button>
         </form>";
-        $userPermission = false; // włącz / wyłącz funkcję usuwania książek
+        $userPermission = true; // włącz / wyłącz funkcję usuwania książek
         if ($userPermission) {
-        echo "<form action='delete_book.php' method='POST'>
+        echo "<form action='admin/delete_book.php' method='POST'>
             <input type='hidden' name='id' value='" . $row["id"] . "'>
             <button type='submit' name='delete' class='btn btn-danger'>Usuń</button>
         </form>";
@@ -164,7 +164,7 @@ if ($result->num_rows > 0) {
         echo "<td style='text-align: center; vertical-align: middle;'>";
 
         // Utwórz jeden formularz dla akcji "Oznacz jako przeczytane" lub "Oznacz jako nieprzeczytane"
-        echo "<form action='mark_as_read.php' method='POST'>";
+        echo "<form action='admin/mark_as_read.php' method='POST'>";
         echo "<input type='hidden' name='id' value='" . $row["id"] . "'>";
 
         if ($row["reading"] == 1) {

@@ -141,21 +141,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <h4>Możesz już dodawać książki do swoich zbiorów bibliotecznych online!</h4>
     <!-- formularz -->
     <form action="add" method="post">
-        <label for="title">Tytuł:</label>
-        <input type="text" id="title" name="title" required>
-        
-        <label for="author">Autor:</label>
-        <input type="text" id="author" name="author" required>
-        
-        <label for="genre">Gatunek:</label>
-        <select id="genre" name="genre">
-            <?php while ($genre_row = $genres_result->fetch_assoc()): ?>
-                <option value="<?php echo $genre_row['id']; ?>"><?php echo $genre_row['name']; ?></option>
-            <?php endwhile; ?>
-        </select>
-        
-        <button type="submit" class="btn btn-success btn-lg"><i class="fa fa-plus-circle"> Dodaj książkę</i></button>
-    </form>
+    <label for="title">Tytuł:</label>
+    <input type="text" id="title" name="title" required>
+    
+    <label for="author">Autor:</label>
+    <input type="text" id="author" name="author" required>
+    
+    <label for="genre">Gatunek:</label>
+    <select id="genre" name="genre">
+        <?php while ($genre_row = $genres_result->fetch_assoc()): ?>
+            <option value="<?php echo $genre_row['id']; ?>"><?php echo $genre_row['name']; ?></option>
+        <?php endwhile; ?>
+    </select>
+    
+    <button type="submit" class="btn btn-success btn-lg"><i class="fa fa-plus-circle"></i> Dodaj książkę</button>
+</form>
     
     <!-- lista książek -->
     <div style="margin-top: 10px;">

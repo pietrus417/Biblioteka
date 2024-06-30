@@ -1,6 +1,6 @@
 <?php
-    include 'check_secure.php';
-    include 'connection.php';
+    include '..\check_secure.php';
+    include '..\connection.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,7 +73,7 @@
 </head>
 <body>
 <nav class="top-menu">
-<?php include 'navbar.php'; ?>
+<?php include '../navbar.php'; ?>
 </nav>
     <h1>Lista przeczytanych książek</h1>
     <?php
@@ -124,7 +124,7 @@ $conn->close();
                 <th>Akcje</th>
             </tr>
         <?php
-            include 'connection.php';
+            include '..\connection.php';
             
             $query = "SELECT * FROM books WHERE reading = 1"; // Wybieramy tylko przeczytane książki
 $result = $conn->query($query);
@@ -137,7 +137,7 @@ if ($result->num_rows > 0) {
         echo "<td>" . $row["author"] . "</td>";
         echo "<td>" . $row["genre"] . "</td>";
         echo "<td class='action-btns'>
-                <form action='update_reading.php' method='POST'>
+                <form action='admin/update_reading.php' method='POST'>
     <input type='hidden' name='id' value='" . $row["id"] . "'>
     <button type='submit' name='delete' class='btn btn-danger'>Usuń z listy przeczytanych</button>
 </form>

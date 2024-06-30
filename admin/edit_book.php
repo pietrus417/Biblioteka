@@ -1,6 +1,6 @@
 <?php
-include 'check_secure.php';
-include 'connection.php';
+include '..\check_secure.php';
+include '..\connection.php';
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["id"])) {
@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $note_stmt->bind_param("is", $book_id, $note);
 
         if ($note_stmt->execute()) {
-            header("Location: edit_book.php?id=" . $book_id);
+            header("Location: edit?id=" . $book_id);
             exit();
         } else {
             echo "Błąd podczas dodawania notatki: " . $conn->error;
@@ -177,7 +177,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <tbody>
                 <?php while ($note_row = $notes_result->fetch_assoc()): ?>
                     <tr>
-                        <td><?php echo htmlspecialchars_decode($note_row["note"]); ?></td>
+                    <td><?php echo nl2br(htmlspecialchars($note_row["note"])); ?></td>
                         <td><?php echo $note_row["created_at"]; ?></td>
                     </tr>
                 <?php endwhile; ?>
