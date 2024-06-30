@@ -1,6 +1,6 @@
 <?php
-include '..\check_secure.php';
-include '..\connection.php';
+include 'check_secure.php';
+include 'connection.php';
 
 $sort = isset($_GET['sort']) ? $_GET['sort'] : '';
 $order = ($sort === 'asc') ? 'ASC' : 'DESC';
@@ -96,7 +96,7 @@ $totalBooks = $result->num_rows;
 
 <body>
 <nav class="top-menu">
-<?php include '..\navbar.php'; ?>
+<?php include 'navbar.php'; ?>
 </nav>
     <h1>Moje Notatki</h1>
     <div style="text-align: center; padding: 10px; margin-top: 20px;">

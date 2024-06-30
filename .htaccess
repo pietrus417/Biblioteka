@@ -1,12 +1,11 @@
 RewriteEngine On
-RewriteBase /library/
+
 RewriteRule ^home$ index.php [L]
 RewriteRule ^view$ view_books.php [L]
-RewriteRule ^read$ admin/reading_books.php [L]
+RewriteRule ^read$ reading_books.php [L]
 RewriteRule ^restricted_area$ security.php [L]
-RewriteRule ^edit$ admin/edit_book.php [L]
-RewriteRule ^add$ admin/add_book.php [L]
-RewriteRule ^notes$ admin/notes.php [L]
-RewriteRule ^add_note$ admin/notes.php [L]
-RewriteRule ^view_notes$ admin/view_notes.php [L]
-
+RewriteRule ^edit$ edit_book.php [L]
+RewriteRule ^add$ add_book.php [L]
+RewriteRule ^notes$ notes.php [L]
+RewriteRule ^add_note$ notes.php [L]
+RewriteRule ^view_notes$ view_notes.php [L]

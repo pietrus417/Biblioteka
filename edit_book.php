@@ -1,6 +1,6 @@
 <?php
-include '..\check_secure.php';
-include '..\connection.php';
+include 'check_secure.php';
+include 'connection.php';
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["id"])) {

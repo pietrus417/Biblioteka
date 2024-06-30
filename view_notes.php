@@ -1,6 +1,6 @@
 <?php
-include '../check_secure.php';
-include '../connection.php';
+include 'check_secure.php';
+include 'connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["id"])) {
     $id = $_GET["id"];
@@ -94,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["id"])) {
 
 <body>
 <nav class="top-menu">
-<?php include '..\navbar.php'; ?>
+<?php include 'navbar.php'; ?>
 </nav>
     <h1>Notatki i Oceny</h1>
     <div style="text-align: center; padding: 10px; margin-top: 20px;">

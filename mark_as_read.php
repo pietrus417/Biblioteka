@@ -1,6 +1,6 @@
 <?php
 // Połączenie z bazą danych - zaimportuj odpowiednią konfigurację
-include '..\connection.php';
+include 'connection.php';
 
 // Sprawdź, czy żądanie jest wysłane metodą POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (mysqli_query($conn, $sql)) {
             // Udane zaktualizowanie - przekieruj użytkownika na stronę z listą książek
-            header('Location: ..\view');
+            header('Location: view');
             exit;
         } else {
             // Jeśli wystąpił problem z zaktualizowaniem rekordu, możesz obsłużyć to odpowiednio
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 } else {
     // Jeśli żądanie nie zostało wysłane metodą POST, przekieruj użytkownika na stronę główną lub odpowiednią stronę
-    header('Location: ..\index.php');
+    header('Location: index.php');
     exit;
 }
 

@@ -1,7 +1,7 @@
 <?php
 
-include '../check_secure.php';
-include '../connection.php';
+include 'check_secure.php';
+include 'connection.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id"])) {
     $id = $_POST["id"];
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["id"])) {
         $conn->commit();
         
         // Przekieruj na stronę z listą książek
-        header("Location: ../view");
+        header("Location: view");
         exit();
     } catch (Exception $e) {
         // Jeśli wystąpił błąd, cofnij transakcję
