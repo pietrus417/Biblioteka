@@ -144,7 +144,7 @@ if ($result->num_rows > 0) {
         echo "<td>" . $row["title"] . "</td>";
         echo "<td>" . $row["author"] . "</td>";
         echo "<td>" . $row["genre"] . "</td>";
-        echo "<td style='text-align: center;'>" . $row["rating"] . " / 5</td>";
+        echo "<td style='text-align: center;'>" . $row["rating"] . " / 10</td>";
         echo "<td>";
         echo "<div class='action-btns'>";
         echo "<form action='view_notes' method='GET'>";

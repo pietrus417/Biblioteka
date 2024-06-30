@@ -39,6 +39,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $genre = $_POST["genre"];
         $rating = $_POST["rating"];
 
+         // Check if rating is provided, otherwise default to 0
+    if (isset($_POST["rating"]) && !empty($_POST["rating"])) {
+        $rating = $_POST["rating"];
+    } else {
+        $rating = 0;
+    }
+
         $sql = "UPDATE books SET title=?, author=?, genre=?, rating=? WHERE id=?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("sssii", $title, $author, $genre, $rating, $id);
@@ -154,7 +161,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         <h3 style="text-align: center;">Ocena:</h3>
         <div class="rating">
-            <?php for ($i = 5; $i >= 1; $i--): ?>
+            <?php for ($i = 10; $i >= 1; $i--): ?>
                 <input type="radio" id="star<?php echo $i; ?>" name="rating" value="<?php echo $i; ?>" <?php if ($rating == $i) echo 'checked'; ?>>
                 <label for="star<?php echo $i; ?>">&#9733;</label>
             <?php endfor; ?>
